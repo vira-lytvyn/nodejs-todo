@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-todo",
+  "version": "1.0.0",
+  "description": "TODO rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vira-lytvyn/nodejs-todo.git"
+  },
+  "author": "vira lytvyn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vira-lytvyn/nodejs-todo/issues"
+  },
+  "homepage": "https://github.com/vira-lytvyn/nodejs-todo#readme"
+}
