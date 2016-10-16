@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/vira-lytvyn/nodejs-todo/issues"
   },
-  "homepage": "https://github.com/vira-lytvyn/nodejs-todo#readme"
+  "homepage": "https://github.com/vira-lytvyn/nodejs-todo#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
