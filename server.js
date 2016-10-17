@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 
 routes(app);
 
-app.all('/*', function(req, resp) {
-  resp.send('\
+app.all('/*', function(req, res) {
+  res.send('\
     <!DOCTYPE html>\
     <html lang="en">\
     <head>\
