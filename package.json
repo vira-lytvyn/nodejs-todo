@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/vira-lytvyn/nodejs-todo/issues"
   },
-  "homepage": "https://github.com/vira-lytvyn/nodejs-todo#readme"
+  "homepage": "https://github.com/vira-lytvyn/nodejs-todo#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.3"
+  }
 }
