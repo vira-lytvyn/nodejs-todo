@@ -41,24 +41,15 @@ router.post('/api/todo/', function(req, res) {
 
 // update todo
 router.put('/api/todo/:_id', function(req, res) {
-  Todo.findOneAndUpdate(
+  Todo.update(
     {
       _id: mongoose.Types.ObjectId(req.params._id)
     },
     {
-      task: req.body.task
+      $set: {
+        task: req.body.task
+      }
     },
-    {},
-
-  // Todo.update(
-  //   {
-  //     _id: mongoose.Types.ObjectId(req.params._id)
-  //   },
-  //   {
-  //     $set: {
-  //       task: req.body.task
-  //     }
-  //   },
     function(err) {
       if (err) {
         console.log(err);
