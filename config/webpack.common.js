@@ -5,11 +5,10 @@ var helpers = require('./helpers');
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
-    // angular1: './src/angular1/app.js'
-    // angular2: './src/angular2/app.ts'
+    'polyfills': './src/angular2/polyfills.ts',
+    'vendor': './src/angular2/vendor.ts',
+    'angular2': './src/angular2/main.ts',
+    'angular1': './src/angular1/app.js'
   },
 
   resolve: {
@@ -32,29 +31,20 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
+        exclude: helpers.root('src', 'angular2'),
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
       },
       {
         test: /\.css$/,
-        include: helpers.root('src', 'app'),
+        include: helpers.root('src', 'angular2'),
         loader: 'raw'
-      },
-      {
-        test: /.js$/,
-        include: helpers.root('src', 'app'),
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
       }
     ]
   },
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
+      name: ['angular2', 'vendor', 'polyfills']
     }),
 
     new HtmlWebpackPlugin({
