@@ -5,22 +5,18 @@ var helpers = require('./helpers');
 
 module.exports = {
   entry: {
-    'polyfills': './src/angular2/polyfills.ts',
-    'vendor': './src/angular2/vendor.ts',
-    'angular2': './src/angular2/main.ts',
-    'angular1': './src/angular1/app.js'
+    'angular1': './app/src/angular1/src/app.js',
+    'angular2': './app/src/angular2/src/app.js',
+    'backbone': './app/src/backbone/src/app.js',
+    'react': './app/src/react/src/app.js'
   },
 
   resolve: {
-    extensions: ['', '.js', '.ts']
+    extensions: ['', '.js']
   },
 
   module: {
     loaders: [
-      {
-        test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader']
-      },
       {
         test: /\.html$/,
         loader: 'html'
@@ -31,12 +27,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: helpers.root('src', 'angular2'),
+        exclude: helpers.root('src', 'angular1', 'angular2', 'backbone', 'react'),
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
       },
       {
         test: /\.css$/,
-        include: helpers.root('src', 'angular2'),
+        include: helpers.root('src', 'angular1', 'angular2', 'backbone', 'react'),
         loader: 'raw'
       }
     ]
@@ -44,11 +40,11 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['angular2', 'vendor', 'polyfills']
+      name: ['angular1', 'angular2', 'backbone', 'react']
     }),
 
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'app/src/index.html'
     })
   ]
 };

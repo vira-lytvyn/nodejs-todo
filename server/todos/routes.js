@@ -3,14 +3,9 @@ var Todo = require('../db/db').Todo;
 var express = require('express');
 var router = express.Router();
 
-router.get('/todos', function(req, res) {
-  res.send('Please use /api/todo in order to interact with db');
-});
-
 // get todos
 router.get('/api/todos', function(req, res) {
   Todo.find(function(err, todos) {
-    console.log('test');
     if (err) {
       console.log(err);
     }
