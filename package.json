@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "TODO app with multiple JS frameworks and node.js rest api",
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --port 9001",
+    "start": "NODE_PATH=$NODE_PATH:./src node ./server",
     "test": "karma start",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "dev": "npm start & webpack-dev-server --progress --colors --port 9001"
   },
   "repository": {
     "type": "git",
@@ -24,9 +25,6 @@
   },
   "homepage": "https://github.com/vira-lytvyn/nodejs-todo#readme",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "mongoose": "^4.6.3",
     "@angular/common": "~2.1.0",
     "@angular/compiler": "~2.1.0",
     "@angular/core": "~2.1.0",
@@ -35,21 +33,27 @@
     "@angular/platform-browser": "~2.1.0",
     "@angular/platform-browser-dynamic": "~2.1.0",
     "@angular/router": "~3.1.0",
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "body-parser": "^1.15.2",
     "core-js": "^2.4.1",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.3",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
+    "angular2-template-loader": "^0.4.0",
+    "babel-core": "^6.18.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
     "bower": "^1.7.7",
-    "http-server": "^0.9.0",
-    "angular2-template-loader": "^0.4.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.15.0",
+    "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^1.2.0",
     "karma-jasmine": "^1.0.2",

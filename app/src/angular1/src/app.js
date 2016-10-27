@@ -1,3 +1,4 @@
-const message = 'Hello from the Angular 1 entry point file';
+import angular from 'angular';
+import appModule from './config';
 
-console.log(message);
+angular.bootstrap(document, [appModule]);
