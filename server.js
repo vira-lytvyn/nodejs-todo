@@ -12,8 +12,8 @@ app.use(express.static(__dirname + '/public'));
 routes(app);
 
 app.all('/*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, 'src/index.html'));
-})
+  res.sendFile(path.resolve(__dirname, 'app/src/index.html'));
+});
 
 app.listen(PORT, function() {
   console.log('Server is running on ' + PORT);
