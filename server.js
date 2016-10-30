@@ -11,10 +11,6 @@ app.use(express.static(__dirname + '/public'));
 
 routes(app);
 
-// app.all('/angular1', function(req, res) {
-//   res.sendFile(path.resolve(__dirname, 'app/src/angular1/src/index.html'));
-// });
-
 app.all('/*', function(req, res) {
   res.sendFile(path.resolve(__dirname, 'app/src/index.html'));
 });
