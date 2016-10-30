@@ -56,10 +56,6 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'app/src/index.html'
-    }),
-
-    new HtmlWebpackPlugin({
-      template: 'app/src/angular1/src/index.html'
     })
   ]
 };

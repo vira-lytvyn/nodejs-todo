@@ -10,7 +10,7 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 
   $stateProvider
     .state('todos', {
-      url: '/',
+      url: '/angular1',
       template: require('./todos/todos.html'),
       controller: todosController
     });
