@@ -12,10 +12,6 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
       url: '/',
       template: require('./todos/todos.html'),
       controller: todosController
-    })
-    .state('about', {
-      url: '/about',
-      template: require('./about/about.html')
     });
 
   $locationProvider.html5Mode(true);
