@@ -1,37 +1,26 @@
 import _ from 'lodash';
 
-export default function($scope) {
+export default function($scope, todoFactory) {
   $scope.todos = [];
 
   $scope.onCompletedClick = todo => {
     todo.isCompleted = !todo.isCompleted;
-  }
+  };
 
   $scope.onEditClick = todo => {
     todo.isEditing = true;
     todo.updatedTask = todo.task;
-  }
-
-  $scope.deleteTask = todo => {
-    _.remove($scope.todos, todoToDelete => todoToDelete.task === todo.task);
-  }
-
-  $scope.updateTask = todo => {
-    todo.task = todo.updatedTask;
-    todo.isEditing = false;
-  }
+  };
 
   $scope.onCancelClick = todo => {
     todo.isEditing = false;
-  }
+  };
 
-  $scope.createTask = (task) => {
-    if (task) {
-      $scope.todos.push({
-        task: task,
-        isCompleted: false
-      });
-    }
-    $scope.newTask = '';
-  }
+  const { createTask, updateTask, deleteTask } = todoFactory;
+
+  $scope.createTask = _.partial(createTask, $scope);
+
+  $scope.updateTask = _.partial(updateTask);
+
+  $scope.deleteTask = _.partial(deleteTask, $scope);
 }
