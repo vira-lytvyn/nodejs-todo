@@ -1,7 +1,9 @@
 import _ from 'lodash';
 
 export default function($scope, todoFactory) {
-  $scope.todos = [];
+  // $scope.todos = [];
+
+  todoFactory.getTasks($scope);
 
   $scope.onCompletedClick = todo => {
     todo.isCompleted = !todo.isCompleted;

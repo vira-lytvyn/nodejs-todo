@@ -55,7 +55,7 @@ router.put('/api/todo/:_id', function(req, res) {
 });
 
 // delete todo
-router.put('/api/todo/:_id', function(req, res) {
+router.delete('/api/todo/:_id', function(req, res) {
   Todo.remove(
     {
       _id: mongoose.Types.ObjectId(req.params._id)
