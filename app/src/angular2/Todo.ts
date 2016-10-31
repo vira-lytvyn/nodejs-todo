@@ -1,4 +1,5 @@
 export class Todo {
-    task: string;
-    isCompleted: boolean;
+  _id: string;
+  task: string;
+  isCompleted: boolean;
 }
