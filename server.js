@@ -7,7 +7,7 @@ var routes = require('./server/routes');
 var PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname + 'app')));
 
 routes(app);
 

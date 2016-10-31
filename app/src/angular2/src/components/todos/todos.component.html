@@ -1,0 +1,23 @@
+<form (submit)="addTodo($event)">
+  <input type="text" class="form-control todos__create-input" placeholder="what to do?" [(ngModel)]="task" name="task">
+  <button class="btn btn-success todos__create-button">Create task</button>   
+</form>
+
+<table class="table table-striped">
+  <tr>
+    <th>Completed?</th>
+    <th>Task</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let todos of todos">
+    <td>
+      <input type="checkbox" [checked]="todos.isCompleted" (click)="updateStatus(todos)">
+    </td>
+    <td>
+      <span class="todos__task">{{todos.task}}</span>
+    </td> 
+    <td>
+      <button class="btn btn-danger" (click)="deleteTodo(todos._id)" >Delete</button>
+    </td>
+  </tr>
+</table>

@@ -6,7 +6,7 @@ var helpers = require('./helpers');
 module.exports = {
   entry: {
     'angular1': './app/src/angular1/src/app.js',
-    'angular2': './app/src/angular2/src/app.js',
+    'angular2': './app/src/angular2/src/main.js',
     'backbone': './app/src/backbone/src/app.js',
     'react': './app/src/react/src/app.js'
   },

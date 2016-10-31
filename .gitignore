@@ -36,3 +36,7 @@ typings
 
 # Optional REPL history
 .node_repl_history
+
+# TypeScript compiled
+app/src/angular2/**/*.js
+app/src/angular2/**/*.map
