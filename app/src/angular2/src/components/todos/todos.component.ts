@@ -19,8 +19,7 @@ export class TodosComponent {
             });
     }
     
-    addTodo(event){
-        event.preventDefault();
+    addTodo(){
         var newTodo = {
             task: this.task,
             isCompleted: false
@@ -33,7 +32,7 @@ export class TodosComponent {
             });
     }
     
-    deleteTodo(id){
+    deleteTodo(id:string){
         var todos = this.todos;
         
         this.todosService.deleteTodo(id).subscribe(data => {
@@ -47,7 +46,7 @@ export class TodosComponent {
         });
     }
     
-    updateStatus(todos){
+    updateStatus(todos:Todo){
         var _todos = {
             _id:todos._id,
             task: todos.task,

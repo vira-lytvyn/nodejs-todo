@@ -6,17 +6,23 @@ var helpers = require('./helpers');
 module.exports = {
   entry: {
     'angular1': './app/src/angular1/src/app.js',
-    'angular2': './app/src/angular2/src/main.js',
+    'polyfills': './app/src/angular2/src/polyfills.ts',
+    'vendor': './app/src/angular2/src/vendor.ts',
+    'angular2': './app/src/angular2/src/main.ts',
     'backbone': './app/src/backbone/src/app.js',
     'react': './app/src/react/src/app.js'
   },
 
   resolve: {
-    extensions: ['', '.js', '.scss']
+    extensions: ['', '.js', '.scss', '.ts']
   },
 
   module: {
     loaders: [
+      {
+        test: /\.ts$/,
+        loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -27,7 +33,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'raw'
+        loaders: ['raw', 'html']
       },
       {
         test: /\.(sass|scss)$/,
@@ -51,7 +57,7 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['angular1', 'angular2', 'backbone', 'react']
+      name: ['angular1', 'angular2', 'vendor', 'polyfills', 'backbone', 'react']
     }),
 
     new HtmlWebpackPlugin({

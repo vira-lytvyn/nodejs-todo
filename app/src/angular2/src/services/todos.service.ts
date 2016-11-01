@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Todo} from '../../Todo';
 
 @Injectable()
 export class TodoService{
@@ -13,17 +14,17 @@ export class TodoService{
             .map(res => res.json());
     }
     
-    addTodo(newTodo){
+    addTodo(newTodo:Todo){
         return this.http.post('/api/todo', newTodo)
             .map(res => res.json());
     }
     
-    deleteTodo(id){
+    deleteTodo(id:string){
         return this.http.delete('/api/todo/'+id)
             .map(res => res.json());
     }
     
-    updateStatus(todo){
+    updateStatus(todo:Todo){
         return this.http.put('/api/todo/'+todo._id, todo)
             .map(res => res.json());
     }
